@@ -52,3 +52,82 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
+    
+    
+    
+#include <stdio.h>
+#define MAX 50
+
+typedef int TIPOCHAVE;
+
+typedef struct {
+    TIPOCHAVE chave;
+} REGISTRO;
+
+typedef struct {
+    REGISTRO A[MAX+1];
+    int nrElem;
+} LISTA;
+
+void inicializar(LISTA* l) {
+    l->nrElem = 0;
+}
+
+void qtdElementos(LISTA* l) {
+    printf("numero de elementos da lista = %i", l->nrElem);
+}
+
+void exibirLista(LISTA* l) {
+    int i;
+    for(i = 0; i < l->nrElem; i++)
+        printf("%i ", l->A[i].chave);
+
+    printf("\n");
+}
+
+void adcElem(LISTA* l, TIPOCHAVE ele) {
+    if(l->nrElem == 0)
+        l->A[0].chave = ele;
+    else 
+        l->A[l->nrElem].chave = ele;
+    l->nrElem++;
+    printf("elemento %i adicionado na posição %i da lista \n", ele, l->nrElem - 1);
+}
+
+int buscarElem(LISTA* l, TIPOCHAVE ch) {
+    int i = 0;
+    while(i < l->nrElem){
+        if(l->A[i].chave == ch)
+            return i;
+        else 
+            i++;
+    }
+    return -1;
+}
+
+void insercaoOrd(LISTA* l, REGISTRO reg, TIPOCHAVE ch) {
+    if(l->nrElem != MAX || i < 0)
+        
+}
+
+void exclusão(LISTA* l, REGISTRO reg){
+
+}
+
+void reiniciarLista(LISTA* l) {
+    l->nrElem = 0;
+}
+
+
+int main() {
+    LISTA numeros;
+    inicializar(&numeros);
+    adcElem(&numeros, 2);
+    adcElem(&numeros, 7);
+    adcElem(&numeros, 4);
+    adcElem(&numeros, 3);
+    exibirLista(&numeros);
+    printf("posição do elemento: %i", buscarElem(&numeros, 7));
+    return 0;
+}
